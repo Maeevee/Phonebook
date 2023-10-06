@@ -3,18 +3,19 @@ import { nav } from '../../helpers/nav'
 import { NavLink } from 'react-router-dom'
 import LogoutBtn from '../LogoutBtn/LogoutBtn'
 import { useAuth } from '../../hooks/useAuth'
+import UserMenu from '../UserManu/UserMenu'
+import AuthNav from '../AuthNav/AuthNav'
 
 const Nav = () => {
 
-    const {isLogedin, user} = useAuth()
+    const {isLogedin} = useAuth()
 
     return (
         <>
-            <ul>
-                {nav.map(({id, href, name}) => <li key={id}><NavLink to={href}>{name}</NavLink></li>)}
-            </ul>
-            {isLogedin && <p>{`Wellcome ${user.name}!`}</p>}
-            {isLogedin && <LogoutBtn/>}
+        <NavLink to="/">Home</NavLink>
+        {isLogedin && <NavLink to="/phonebook">Phonebook</NavLink>}
+            {isLogedin ? <UserMenu/> : <AuthNav/>}
+
         </>
     )
 }

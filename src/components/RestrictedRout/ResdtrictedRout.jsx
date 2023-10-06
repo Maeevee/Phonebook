@@ -1,11 +1,12 @@
-import React from 'react'
+import { Navigate } from "react-router-dom";
+import { useAuth } from "../../hooks/useAuth";
 
-const ResdtrictedRout = () => {
-    return (
-        <div>
-        
-        </div>
-    )
+
+
+
+const ResdtrictedRout = ({component, redirectTo="/"}) => {
+    const {isLogedin} = useAuth();
+    return isLogedin ? <Navigate to={redirectTo} replace/> : component
 }
 
 export default ResdtrictedRout

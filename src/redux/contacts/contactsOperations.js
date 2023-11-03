@@ -18,10 +18,15 @@ const axiosBaseQuery =
     }
   };
 
-    export const contactAPI = createApi({
-        reducerPath: 'contacts',
-        baseQuery: axiosBaseQuery({
-            baseUrl: 'https://connections-api.herokuapp.com'
+  export const contactsApi = createApi({
+    reducerPath: 'contacts',
+    baseQuery: axiosBaseQuery({ baseUrl: 'https://connections-api.herokuapp.com' }),
+    tagTypes: ['contscts'],
+    endpoints: (builder) => ({
+      getContacts: builder.query({
+        query: () => ({
+            url: '/contacts',
+            method: 'GET',
         }),
         tagTypes: ['Contacts'], 
         endpoints: builder => ({

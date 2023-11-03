@@ -1,12 +1,11 @@
-import { useState } from 'react';
-import { useGetContactsQuery, useDeleteContactMutation, useChangeContactMutation } from '../../../redux/contacts/contactsOperations';
+import { useGetContactsQuery, useDeleteContactMutation } from '../../../redux/contacts/contactsOperations';
 import { ChangeBtn } from '../../../components/ChangeBtn/ChangeBtn';
 
 const ContactList = ({search}) => {
 
     const {data} = useGetContactsQuery();
-    const [deleteContact, {isLoading}] = useDeleteContactMutation();
-    const [changeContact] = useChangeContactMutation();
+    const [deleteContact] = useDeleteContactMutation();
+    // const [changeContact] = useChangeContactMutation();
 
     const filtredContacts = () => {
         return data?.filter((contact) => contact.name.toLowerCase().includes(search))

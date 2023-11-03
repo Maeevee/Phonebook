@@ -18,19 +18,45 @@ const axiosBaseQuery =
     }
   };
 
-    export const contactAPI = createApi({
-        reducerPath: 'contacts',
-        baseQuery: axiosBaseQuery({
-            baseUrl: 'https://connections-api.herokuapp.com'
+  export const contactsApi = createApi({
+    reducerPath: 'contacts',
+    baseQuery: axiosBaseQuery({ baseUrl: 'https://connections-api.herokuapp.com' }),
+    tagTypes: ['contscts'],
+    endpoints: (builder) => ({
+      getContacts: builder.query({
+        query: () => ({
+            url: '/contacts',
+            method: 'GET',
         }),
-        tagTypes: ['Contacts'], 
-        endpoints: builder => ({
-            getContacts: builder.query({
-                query: () => ({
-                    url: '/contacts',
-                    method: 'GET'
-                }),
-                providesTags: ['Contacts']
-            })
-        })
-    })
+        providesTags: ['contscts']
+      }),
+      postContact: builder.mutation({
+        query: (value) => ({
+            url: '/contacts',
+            method: 'POST',
+            data: value,
+        }),
+        invalidatesTags: ['contscts']
+      }),
+      changeContact: builder.mutation({
+        query: (value) => ({
+            url: `/contacts/${value.id}`,
+            method: 'PATCH',
+            data: {
+                name: value.name,
+                number: value.number,
+            }
+        }),
+        invalidatesTags: ["contscts"]
+      }),
+      deleteContact: builder.mutation({
+        query: (id) => ({
+            url: `/contacts/${id}`,
+            method: 'DELETE',
+        }),
+        invalidatesTags: ['contscts']
+      })
+    }),
+  })
+
+  export const {useChangeContactMutation, useDeleteContactMutation, useGetContactsQuery, usePostContactMutation} = contactsApi

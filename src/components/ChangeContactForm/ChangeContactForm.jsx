@@ -3,7 +3,7 @@ import { useChangeContactMutation } from "../../redux/contacts/contactsOperation
 
 export const ChangeContactForm = ({ name, id, number }) => {
 
-    const [changeContact, {isLoading}] = useChangeContactMutation();
+    const [changeContact] = useChangeContactMutation();
 
     const [contactName, setContactName] = useState(name);
     const [contactNumber, setContactNumber] = useState(number);

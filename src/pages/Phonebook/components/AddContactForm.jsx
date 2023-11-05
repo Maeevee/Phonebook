@@ -8,7 +8,8 @@ const AddContactForm = () => {
 
   const {data} = useGetContactsQuery();
 
-  const [postContacts, {isLoading}] = usePostContactMutation();
+  const [postContacts] = usePostContactMutation();
+  // const [postContacts, {isLoading}] = usePostContactMutation();
 
   const handleInputChange = (event) => {
       const {name, value} = event.target;

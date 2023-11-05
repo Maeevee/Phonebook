@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 const NotFoundPage = () => {
     return (
         <div>
-            <img/>
+            <img alt='not found'/>
             <Link to='/'>To home</Link>
         </div>
     )

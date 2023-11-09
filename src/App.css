@@ -5,6 +5,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Amiri&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Arapey&display=swap');
+
+body {
+  background-image: url('../assets/background.png');
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  font-family: 'Amiri', serif;
+}
+
+
+
+
+/* .App {
   text-align: center;
 }
 

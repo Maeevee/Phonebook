@@ -28,7 +28,7 @@ function App() {
   return (
     <Routes>
       <Route path='/' element={<Layout/>}>
-        <Route index element={<Navigate to='home'/>}/>
+        <Route path='/' element={<Navigate to='home'/>}/>
         <Route path='home' element={<Home/>}/>
         <Route path='login' element={<ResdtrictedRout redirectTo='/phonebook' component={<Login/>}/>}/>
         <Route path='register' element={<ResdtrictedRout redirectTo='/phonebook' component={<Register/>}/>}/>

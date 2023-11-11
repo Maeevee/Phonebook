@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom'
 import { useAuth } from '../../hooks/useAuth'
 import UserMenu from '../UserManu/UserMenu'
 import AuthNav from '../AuthNav/AuthNav'
-// import styles from './Nav.module.css'
+import styles from './Nav.module.css'
 
 const Nav = () => {
 
@@ -13,18 +13,18 @@ const Nav = () => {
 
     return (
         <div 
-        // className={styles.container}
+        className={styles.container}
         >
         <NavLink 
-        // className={styles.header} 
+        className={styles.header} 
         to="/">contact_book</NavLink>
         <p 
-        // className={styles.text}
+        className={styles.text}
         >Welcome to our application where you can store and organise all your contacts. To get started, please register or, if you are already registered, log in, and you will have the ability to create a list of your contacts and securely store them on our server.</p>
         {isLogedin && <NavLink to="/phonebook">Phonebook</NavLink>}
             {isLogedin ? <UserMenu/> : <AuthNav/>}
         <p 
-        // className={styles.copyright}
+        className={styles.copyright}
         >©2023 Maeevee</p>
         </div>
     )

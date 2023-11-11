@@ -1,1 +1,1 @@
-export const nav = [{href: '/login', name: 'login', id: 1}, {href: '/register', name: 'Register', id: 2}]
+export const nav = [{href: '/login', name: 'Login', id: 1}, {href: '/register', name: 'Register', id: 2}]
